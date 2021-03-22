@@ -46,10 +46,14 @@ async function update(board) {
     try {
         const boardToSave = {
             _id: ObjectId(board._id),
-            name: board.name,
-            price: board.price,
-            inStock: board.inStock,
-            msgs: board.msgs || []
+            title: board.title,
+            createdAt: board.createdAt,
+            createdBy: board.createdBy,
+            statuses: board.statuses,
+            priorities: board.priorities,
+            members: board.members,
+            groups: board.groups,
+            activities: board.activities
         }
         const collection = await dbService.getCollection('board')
         await collection.updateOne({ '_id': boardToSave._id }, { $set: boardToSave })
@@ -62,9 +66,20 @@ async function update(board) {
 
 async function add(board) {
     try {
+        const boardToAdd = {
+            _id: ObjectId(board._id),
+            title: board.title,
+            createdAt: board.createdAt,
+            createdBy: board.createdBy,
+            statuses: board.statuses,
+            priorities: board.priorities,
+            members: board.members,
+            groups: board.groups,
+            activities: board.activities
+        }
         const collection = await dbService.getCollection('board')
-        await collection.insertOne(board)
-        return board
+        await collection.insertOne(boardToAdd)
+        return boardToAdd
     } catch (err) {
         logger.error('cannot insert board', err)
         throw err
