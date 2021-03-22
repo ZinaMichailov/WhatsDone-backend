@@ -12,6 +12,7 @@ const session = expressSession({
     saveUninitialized: true,
     cookie: { secure: false }
 })
+
 // Express App Config
 app.use(express.json())
 app.use(session)
@@ -29,22 +30,20 @@ if (process.env.NODE_ENV === 'production') {
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
 const reviewRoutes = require('./api/review/review.routes')
+const boardRoutes = require('./api/board/board.routes')
 const {connectSockets} = require('./services/socket.service')
 
 // routes
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
 app.all('*', setupAsyncLocalStorage)
 
-// TODO: check with app.use
 
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/review', reviewRoutes)
+app.use('/api/board', boardRoutes)
 connectSockets(http, session)
 
-// Make every server-side-route to match the index.html
-// so when requesting http://localhost:3030/index.html/car/123 it will still respond with
-// our SPA (single page app) (the index.html file) and allow vue/react-router to take it from there
 app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
