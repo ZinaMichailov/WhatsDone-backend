@@ -19,38 +19,48 @@ function connectSockets(http, session) {
         gSocketBySessionIdMap[socket.handshake.sessionID] = socket
         // TODO: emitToUser feature - need to tested for CaJan21
         // if (socket.handshake?.session?.user) socket.join(socket.handshake.session.user._id)
-        socket.on('disconnect', socket => {
-            console.log('Someone disconnected')
-            if (socket.handshake) {
-                gSocketBySessionIdMap[socket.handshake.sessionID] = null
-            }
-        })
-        socket.on('chat topic', topic => {
+        // socket.on('disconnect', socket => {
+        //     console.log('Someone disconnected')
+        //     if (socket.handshake) {
+        //         gSocketBySessionIdMap[socket.handshake.sessionID] = null
+        //     }
+        // })
+        // socket.on('chat topic', topic => {
+        //     if (socket.myTopic === topic) return;
+        //     if (socket.myTopic) {
+        //         socket.leave(socket.myTopic)
+        //     }
+        //     socket.join(topic)
+        //     // logger.debug('Session ID is', socket.handshake.sessionID)
+        //     socket.myTopic = topic
+        // })
+        socket.on('watch-board', topic => {
             if (socket.myTopic === topic) return;
             if (socket.myTopic) {
                 socket.leave(socket.myTopic)
             }
+            // console.log('in topic', topic);
             socket.join(topic)
-            // logger.debug('Session ID is', socket.handshake.sessionID)
             socket.myTopic = topic
         })
-        socket.on('chat newMsg', msg => {
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            gIo.to(socket.myTopic).emit('chat addMsg', msg)
-        })
-        socket.on('review-added', review => {
-            // emits to all sockets:
-            // gIo.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            socket.broadcast.emit('review-added', review)
-        })
+        // socket.on('chat newMsg', msg => {
+        //     // emits to all sockets:
+        //     // gIo.emit('chat addMsg', msg)
+        //     // emits only to sockets in the same room
+        //     gIo.to(socket.myTopic).emit('chat addMsg', msg)
+        // })
+        // socket.on('review-added', review => {
+        //     // emits to all sockets:
+        //     // gIo.emit('chat addMsg', msg)
+        //     // emits only to sockets in the same room
+        //     socket.broadcast.emit('review-added', review)
+        // })
 
     })
 }
 
 function emit({ type, data }) {
+    // console.log('emit' , type, data);
     gIo.emit(type, data)
 }
 

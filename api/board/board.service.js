@@ -1,5 +1,6 @@
 const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
+const socketService = require('../../services/socket.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
@@ -56,7 +57,8 @@ async function update(board) {
             activities: board.activities
         }
         const collection = await dbService.getCollection('board')
-        await collection.updateOne({ '_id': boardToSave._id }, { $set: boardToSave })
+        await collection.updateOne({ '_id': boardToSave._id }, { $set: boardToSave })  
+        socketService.emit({type: 'board-updated', data: boardToSave);
         return boardToSave;
     } catch (err) {
         logger.error(`cannot update user ${board._id}`, err)
