@@ -57,8 +57,7 @@ async function update(board) {
             activities: board.activities
         }
         const collection = await dbService.getCollection('board')
-        await collection.updateOne({ '_id': boardToSave._id }, { $set: boardToSave })  
-        socketService.emit({type: 'board-updated', data: boardToSave});
+        await collection.updateOne({ '_id': boardToSave._id }, { $set: boardToSave }) 
         return boardToSave;
     } catch (err) {
         logger.error(`cannot update user ${board._id}`, err)
