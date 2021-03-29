@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2ba7a3ff2252dc98c41d",
-    "url": "/css/app.d7abd780.css"
+    "revision": "760eafcfc5b36fbe4442",
+    "url": "/css/app.87351060.css"
   },
   {
     "revision": "d14da0735494db789498",
@@ -92,6 +92,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/slack.8515dc28.svg"
   },
   {
+    "revision": "31665f1ba0642a881cdf0591965c98b5",
+    "url": "/img/small-zigzag-arrow-upward.31665f1b.svg"
+  },
+  {
     "revision": "8a7b1664866711175cf19f6cd1545351",
     "url": "/img/table.8a7b1664.svg"
   },
@@ -100,12 +104,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/travelers.62aebacc.svg"
   },
   {
-    "revision": "d9ea916643f6eba30da671d42c782236",
+    "revision": "6b583b39c7edd58c35e18aba09e20f59",
     "url": "/index.html"
   },
   {
-    "revision": "2ba7a3ff2252dc98c41d",
-    "url": "/js/app.1610887a.js"
+    "revision": "760eafcfc5b36fbe4442",
+    "url": "/js/app.4d6e4245.js"
   },
   {
     "revision": "d14da0735494db789498",
