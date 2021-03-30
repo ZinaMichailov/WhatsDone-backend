@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64dcfebb1be92c06040a",
-    "url": "/css/app.87351060.css"
+    "revision": "877562544fc0760decc3",
+    "url": "/css/app.51b9c077.css"
   },
   {
     "revision": "d14da0735494db789498",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "732389ded34cb9c52dd88271f1345af9",
     "url": "/fonts/element-icons.732389de.ttf"
+  },
+  {
+    "revision": "560fd63d60da6f3139bbcb1926938854",
+    "url": "/img/arrow.560fd63d.jpeg"
   },
   {
     "revision": "92ccddf2ecba3ff5754ba8f2ebd8b1aa",
@@ -92,10 +96,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/slack.8515dc28.svg"
   },
   {
-    "revision": "31665f1ba0642a881cdf0591965c98b5",
-    "url": "/img/small-zigzag-arrow-upward.31665f1b.svg"
-  },
-  {
     "revision": "8a7b1664866711175cf19f6cd1545351",
     "url": "/img/table.8a7b1664.svg"
   },
@@ -104,12 +104,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/travelers.62aebacc.svg"
   },
   {
-    "revision": "ddd1452f18e3b7ea3b17b78d07961ef4",
+    "revision": "f44912284636d492d90db443a2638dca",
     "url": "/index.html"
   },
   {
-    "revision": "64dcfebb1be92c06040a",
-    "url": "/js/app.c44750b0.js"
+    "revision": "877562544fc0760decc3",
+    "url": "/js/app.0aa5c90e.js"
   },
   {
     "revision": "d14da0735494db789498",
