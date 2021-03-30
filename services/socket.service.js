@@ -28,6 +28,9 @@ function connectSockets(http, session) {
         socket.on('board-updated',  boardToSave => {
             gIo.to(socket.myTopic).emit('board-update', boardToSave)
         });
+        socket.on('notifications-updated',  notification => {
+            socket.broadcast.emit('notifications-update', notification)
+        });
     })
 }
 
